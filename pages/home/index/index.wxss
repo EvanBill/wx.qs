@@ -69,10 +69,7 @@
 .page-bd {
   height: 100%;
   width: 100%;
-}
-
-.weui-navbar {
-  position: relative;
+  display: flex;
 }
 
 .weui-navbar-slider {
@@ -89,7 +86,7 @@
 }
 
 .weui-navbar {
-  width: 240rpx;
+  flex: 1;
   position: relative;
   height: 88rpx;
   font-size: 28rpx;
@@ -203,7 +200,7 @@
   padding: 10rpx 0 0rpx 0;
   color: #000;
   text-align: left;
-  white-space:nowrap;
+  white-space: nowrap;
   /* display: -webkit-box; */
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -284,7 +281,8 @@
   margin-bottom: 60rpx;
   float: right;
 }
-.icon-service{
+
+.icon-service {
   z-index: 200;
   position: fixed;
   right: 0;
@@ -295,4 +293,3 @@
   margin-right: 20rpx;
   float: right;
 }
-

@@ -10,10 +10,16 @@ Page({
     banners: [],
     products: [],
     tabs: [{
-      name: '男装',
+      name: '最新发布',
       status: 1
     }, {
-      name: '女装',
+      name: '附近',
+      status: 2
+    }, {
+      name: '趣拼',
+      status: 2
+    }, {
+      name: '我的社区',
       status: 2
     }],
     activeIndex: 0,
@@ -108,7 +114,7 @@ Page({
     })
   },
 
-  getcategory: function (page,isReach) {
+  getcategory: function(page, isReach) {
     const url = `/products/mina_products`;
     const query = {
       page: page,
@@ -125,7 +131,7 @@ Page({
         this.data.products = [];
         this.data.hasMore = true;
       }
-     
+
       if (list.length < this.data.pageSize) {
         this.data.hasMore = false;
       }
@@ -155,14 +161,14 @@ Page({
   },
 
   tabClick: function(e) {
-    if (this.data.activeIndex == e.currentTarget.id)return
+    if (this.data.activeIndex == e.currentTarget.id) return
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id,
-      page:1
+      page: 1
     });
-    this.getcategory(this.data.page,false);
- 
+    this.getcategory(this.data.page, false);
+
   },
 
   /**
@@ -170,7 +176,7 @@ Page({
    */
   onPullDownRefresh: function() {
     wx.showNavigationBarLoading() //在标题栏中显示加载
-    this.data.page=1
+    this.data.page = 1
     this.getBanner()
     this.getcategory(this.data.page, false)
     //模拟加载
@@ -193,8 +199,8 @@ Page({
   onReachBottom: function() {
     var products = this.data.products[this.data.activeIndex];
     var tab = this.data.tabs[this.data.activeIndex];
-   
-    this.getcategory(this.data.page+1, true)
+
+    this.getcategory(this.data.page + 1, true)
   },
 
   /***
@@ -213,7 +219,7 @@ Page({
   },
   onShopping: function() {
     if (this.data.needMeasure) {
-     this.data.page=1
+      this.data.page = 1
     }
     this.setData({
       needMeasure: false

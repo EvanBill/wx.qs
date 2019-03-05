@@ -42,13 +42,6 @@
   </view>
 </view>
 
-<image class='icon-top' bindtap='goTop' wx:if='{{backTopValue}}' src='/images/icon_top.png'></image>
-<view class='icon-service'>
-  <image class='icon-service' src='/images/btn_kf.png'></image>
-  <contact-button size='64' bindtap="contact" session-from="weapp" style="margin: 0 auto; justify-content: center; position: absolute;opacity: 0;" from="weapp"></contact-button>
-</view>
-
-
 <!--分享 -->
 <view wx:if="{{showModal}}">
   <view class="mask"></view>
