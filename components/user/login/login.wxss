@@ -1,0 +1,132 @@
+page {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.user_head {
+  height: 200rpx;
+  line-height: 200rpx;
+  width: 100%;
+  background: #81c1ff;
+  z-index: 5;
+}
+
+.user_photo {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-left: 20rpx;
+  /* padding-left: 20rpx; */
+}
+
+.name-text {
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  color: white;
+}
+
+.login {
+  width: 100%;
+  margin-top: 0rpx;
+}
+
+.phcolor {
+  color: #b1b1b1;
+}
+
+input {
+  left: 36rpx;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+}
+
+.input-view {
+  height: 100rpx;
+  padding: 0 30rpx;
+  line-height: 100rpx;
+}
+
+.input-view image {
+  height: 40rpx;
+  width: 40rpx;
+  vertical-align: middle;
+}
+
+.input-view input {
+  width: 90%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.input-view .input-width-65 {
+  width: 65%;
+}
+
+
+.input-view text {
+  color: #81c1ff;
+  float: right;
+  font-size: 30rpx;
+  vertical-align: middle;
+}
+
+.checkbox-view {
+  height: 90rpx;
+  padding: 0 30rpx;
+  line-height: 90rpx;
+}
+
+.checkbox-view view {
+  display: inline-block;
+}
+
+.checkbox-view image {
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+
+.checkbox-view label {
+  font-size: 30rpx;
+  vertical-align: middle;
+}
+
+.agree-label {
+  padding-left: 7rpx;
+}
+
+.protocol-label {
+  color: #81c1ff;
+}
+
+.checkbox {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.divide {
+  height: 3rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  background: #f0f0f0;
+}
+
+.btn-blue {
+  background: #81c1ff;
+  color: #fff;
+  font-size: 30rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+}
+
+.submit {
+  padding: 88rpx 20rpx 0px 20rpx;
+  /* letter-spacing: 20rpx; *//* background: #f0f0f0; */
+}
+
+.login-form {
+  margin-top: 40rpx;
+}

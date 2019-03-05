@@ -1,0 +1,51 @@
+<view class='container'>
+  <view class='user_head'>
+    <image src='{{user.avatarUrl}}' class='user_photo'></image>
+    <!-- <image src='../../../images/icon_shoujihao.png' class='user_photo'></image> -->
+    <text class='name-text'>{{user.nickName}}</text>
+    <!-- <text class='name-text'>nickname</text> -->
+  </view>
+  <view class='login'>
+    <form class="login-form" bindsubmit="formSubmit" bindreset="formReset">
+      <view class='input-view' wx:if="{{status==3}}">
+        <image src='../../../images/icon_shoujihao.png'></image>
+        <input placeholder="请输入手机号" placeholder-class='phcolor' maxlength="11" bindinput='onTel' auto-focus value='{{user.mobile}}' disabled="{{true}}" class='input-width-65' />
+        <text bindtap='onRebind'>重新绑定</text>
+      </view>
+      <view class='input-view' wx:else>
+        <image src='../../../images/icon_shoujihao.png'></image>
+        <input placeholder="请输入手机号" placeholder-class='phcolor' maxlength="11" bindinput='onTel' type="number" auto-focus value='{{user.mobile}}' />
+      </view>
+
+      <view class='divide'></view>
+      <view wx:if="{{status!=3}}">
+        <view class='input-view'>
+          <image src='../../../images/icon_yanzhengma.png'></image>
+          <input name='code' class='code' placeholder="请输入验证码" placeholder-class='phcolor' type="number" maxlength="6" class='input-width-65' />
+          <text bindtap='onSendCode'>{{str}}</text>
+        </view>
+        <view class='divide'></view>
+      </view>
+
+      <view class='checkbox-view' wx:if="{{isShared}}" bindtap='check'>
+        <!-- <checkbox-group name="checkbox">
+          <checkbox value='1' checked='{{user.shared}}' disabled='{{false}}' /> -->
+        <view>
+          <image src='{{check?"/images/icon_confirm.png":"/images/icon_unconfirmed.png"}}'></image>
+        </view>
+        <label class='agree-label'>
+          我同意
+        </label>
+        <label class='protocol-label' catchtap='showProtocol'>
+          《推广服务协议》
+        </label>
+        <!-- </checkbox-group> -->
+      </view>
+
+
+      <view class='submit'>
+        <button class='btn btn-blue' formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+</view>

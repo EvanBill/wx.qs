@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "login-component": "/components/user/login/login",
+    "authorize-component": "/components/user/authorize/authorize",
+    "select-gender": "/components/select-gender/index"
+  }
+}

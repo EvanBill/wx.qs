@@ -1,0 +1,47 @@
+<wxs src="../../utils/numberFormat.wxs" module="numberFormat" />
+<wxs src="../../utils/tools.wxs" module="tools" />
+<view class='product-item'>
+  <view class='product-item-info'>
+    <view class='product-item-check'>
+      <view wx:if="{{invalid}}" class="product-item-select">
+        <image src='/images/icon_choose_no.png' class='product-item-select-icon' mode='widthFix'></image>
+      </view>
+      <view wx:elif="{{tools.indexOf(selected, product.id)}}" class="product-item-select" catchtap="selectProduct" data-item='{{product}}'>
+        <image src='/images/icon_selected.png' class='product-item-select-icon' mode='widthFix'></image>
+      </view>
+      <view wx:else class="product-item-select" catchtap="selectProduct" data-item='{{product}}'>
+        <image src='/images/icon_uncheck.png' class='product-item-select-icon' mode='widthFix'></image>
+      </view>
+
+    </view>
+    <view class='product-item-image'>
+      <image binderror="fetchImageFailed" src='{{product.productImage}}{{imageThumbnail}}' class='product-image'></image>
+    </view>
+    <view class='product-item-detail'>
+      <view class="product-item-title">{{product.productName}}</view>
+      <view class='product-item-attr' data-product='{{product}}'>
+        <text class='attr-info' wx:if="{{product.skuName!=null}}"> {{product.skuName}}</text>
+      </view>
+      <view class="product-item-price" wx:if="{{invalid}}">已下架</view>
+      <view class='product-item-price-num' wx:else>
+        <view class='product-item-price' wx:if="{{product.discount!=1}}">
+          <view class="price-discount">¥ {{numberFormat.numberFormat(product.discountPrice)}}</view>
+          <view class="product-item-price-discount">¥ {{numberFormat.numberFormat(product.productPrice)}}</view>
+        </view>
+        <view class='product-item-price' wx:else>
+          <view class="price">¥ {{numberFormat.numberFormat(product.productPrice)}}</view>
+        </view>
+        <view class="product-item-amount" catchtap='null'>
+          <view class="cart-btn" catchtap='changeQuantity' data-quantity="-1" data-product="{{product}}">
+            <image src='/images/icon_subtract.png' mode='widthFix' class='cart-change-btn-reduce'></image>
+          </view>
+          <label class='num'>{{product.quantity}}</label>
+          <view class="cart-btn" catchtap='changeQuantity' data-quantity="1" data-product="{{product}}">
+            <image src='/images/icon_add.png' mode='widthFix' class='cart-change-btn-add'></image>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

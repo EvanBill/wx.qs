@@ -1,0 +1,61 @@
+<wxs src='../../../utils/numberFormat.wxs' module='numberFormat' />
+<view class="container">
+  <view>
+    <component-swiper banners="{{banners}}"></component-swiper>
+  </view>
+  <view class="page-bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar-item {{activeIndex == index ? 'weui-navbar-item-on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar-title">{{item.name}}</view>
+          </view>
+        </block>
+      </view>
+      <view class='divide'></view>
+
+      <view class='product-container'>
+        <view class="product-box" wx:for-items="{{products}}" wx:key="{{index}}" data-id="{{item.productId}}">
+          <navigator url="/pages/product-detail/index?productId={{item.productId}}&type={{item.pricingType}}">
+            <view class="img-box">
+              <image src="{{item.masterImage}}{{imageThumbnail}}" class="image" mode="aspectFill" lazy-load="true" />
+            </view>
+            <view class="product-title">{{item.productName}} </view>
+            <view style='display:flex;line-height: 1'>
+              <view class="product-price price" wx:if="{{item.discount==1}}">¥ {{item.listPrice!=null?numberFormat.numberFormat(item.listPrice):numberFormat.numberFormat(item.limitPrice)}}</view>
+              <view class="product-price-discount" wx:else>
+                <view class="price">¥ {{item.listPrice!=null?numberFormat.numberFormat(item.listPrice*item.discount):numberFormat.numberFormat(item.limitPrice*item.discount)}}</view>
+                <view class="price-discount">¥{{item.listPrice!=null?numberFormat.numberFormat(item.listPrice):numberFormat.numberFormat(item.limitPrice)}}</view>
+
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+
+      <view class="no-more-product" wx:if="{{!hasMore}}">没有更多数据</view>
+      <view class="refresh-block" wx:if="{{hasMore}}">
+        <image animation="{{animationData}}" src="/images/loading.gif"></image>
+        <span>加载中</span>
+      </view>
+    </view>
+  </view>
+</view>
+
+<image class='icon-top' bindtap='goTop' wx:if='{{backTopValue}}' src='/images/icon_top.png'></image>
+<view class='icon-service'>
+  <image class='icon-service' src='/images/btn_kf.png'></image>
+  <contact-button size='64' bindtap="contact" session-from="weapp" style="margin: 0 auto; justify-content: center; position: absolute;opacity: 0;" from="weapp"></contact-button>
+</view>
+
+
+<!--分享 -->
+<view wx:if="{{showModal}}">
+  <view class="mask"></view>
+  <view class="modalDlg">
+    <view class='share-view'>
+      <image class='share-content' bindtap='onShareGo' src="/images/img_admain.png" />
+    </view>
+    <image class='share-close' bindtap='onShareClose' src="/images/icon_close.png" />
+  </view>
+</view>

@@ -1,0 +1,6 @@
+<!--components/area-picker/index.wxml-->
+<view>
+  <picker mode="multiSelector" bindchange="selectDone" bindcolumnchange="_changeSelect" value="{{indexs}}" range="{{regions}}" range-key="{{'name'}}">
+    <slot></slot>
+  </picker>
+</view>

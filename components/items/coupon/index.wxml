@@ -1,0 +1,28 @@
+<!--components/items/coupon/index.wxml-->
+<wxs src="../../../utils/tools.wxs" module="tools" />
+<view class='item-coupon-container' bindtap='onItemCouponClick' data-coupon="{{couponData}}">
+  <view class='item-coupon-container-bg'>
+    <image class='item-coupon-container-bg-image' src='{{status==1?imageBg[couponData.useRange]:imageBg[0]}}'></image>
+  </view>
+
+  <view class='item-coupon-container-left '>
+    <text class='item-coupon-container-left-amount '>￥{{couponData.deduction}}</text>
+    <text class='item-coupon-container-left-amount-info '>满{{couponData.amount}}元可用</text>
+  </view>
+  <view class='item-coupon-container-right '>
+    <text class='item-coupon-container-name '>{{couponData.name }}</text>
+    <text class='item-coupon-container-time '>有效期{{tools.formatTimeString(couponData.validDateBegin)}}-{{tools.formatTimeString(couponData.validDateEnd)}}</text>
+    <view class='item-coupon-container-right-use-container '>
+      <block wx:if="{{!isFromReceive}}">
+        <button wx:if="{{status==1}}" class='item-coupon-container-btn-use '>立即使用</button>
+        <button wx:elif="{{status==2}}" class='item-coupon-container-btn-use-unabviable'>已使用</button>
+        <button wx:elif="{{status==3}}" class='item-coupon-container-btn-use-unabviable'>已失效</button>
+        <text wx:if="{{status==1}}" class='item-coupon-container-btn-use-info '>{{tools.lastDay(couponData.leftDays)}}</text>
+      </block>
+      <block wx:else>
+        <button wx:if="{{status==1}}" class='item-coupon-container-btn-use '>点击领取</button>
+      </block>
+
+    </view>
+  </view>
+</view>

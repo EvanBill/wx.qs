@@ -1,0 +1,15 @@
+<!--components/select-gender/index.wxml-->
+<view>
+  <text class='title'>由于是私人定制平台，性别选择后不可更改</text>
+  <view class='image-view'>
+    <view class='{{gender==2 ? "image-view-view-border" : "image-view-view-border-white"}}' bindtap='selectGender' id="2">
+      <image src='/images/girls.png'></image>
+    </view>
+    <view class='{{gender==1 ? "image-view-view-border" : "image-view-view-border-white"}}' bindtap='selectGender' id="1">
+      <image src='/images/boys.png'></image>
+    </view>
+  </view>
+  <view class='bottom-view'>
+    <button bindtap='done'>确定</button>
+  </view>
+</view>

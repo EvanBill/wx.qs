@@ -1,0 +1,54 @@
+/* components/select-gender/index.wxss */
+page {
+  height: 100%;
+  padding: 0rpx;
+  margin: 0rpx;
+}
+
+.title {
+  font-size: 30rpx;
+  color: red;
+  text-align: center;
+  padding-top: 40rpx;
+  display: block;
+}
+
+.image-view {
+  display: flex;
+  justify-content: space-around;
+  padding: 100rpx 40rpx;
+}
+
+.image-view view {
+  display: inline-block;
+}
+
+.image-view-view-border {
+  border: 2rpx solid #8cc8ff;
+}
+
+.image-view-view-border-white {
+  border: 2rpx solid white;
+}
+
+.image-view image{
+  width: 220rpx;
+  height: 360rpx;
+}
+
+.bottom-view {
+  border-top: 1rpx solid #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20rpx 0rpx;
+  align-content: center;
+  background-color: white;
+}
+
+.bottom-view button {
+  color: #fff;
+  border-radius: 50rpx;
+  margin: 0rpx 20rpx;
+  background: #8cc8ff;
+}

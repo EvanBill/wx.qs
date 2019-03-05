@@ -1,0 +1,9 @@
+<view class='swiper-container'>
+  <swiper style='height: {{height}}' indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="{{afterColor}}">
+    <block wx:for="{{banners}}" wx:key="id">
+      <swiper-item bindtap="handleTap" data-item="{{item}}">
+        <image src="{{item.image}}{{imageThumbnail}}" style='height:{{height}}' class="slide-image" width="355" height="300" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

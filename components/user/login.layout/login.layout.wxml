@@ -1,0 +1,6 @@
+
+<authorize-component wx:if="{{status==1}}" bindlogin="UserLogin"></authorize-component>
+<view wx:elif="{{status==-1}}"></view>
+<select-gender wx:elif="{{status==5}}" bindlogin="UserLogin"></select-gender>
+<slot wx:elif="{{status==4}}"></slot>
+<login-component wx:else bindlogin="UserLogin" bindrelogin="relogin" bindrebindMobile="rebindMobile" status="{{status}}" isShared="{{isShared}}" isBindMobile="{{isBindMobile}}" isChangeMobile="{{isChangeMobile}}"></login-component>

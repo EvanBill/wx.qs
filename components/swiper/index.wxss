@@ -1,0 +1,10 @@
+/**index.wxss**/
+.swiper-container{
+  width: 750rpx;
+  position: relative;
+}
+
+.slide-image {
+  width: 100%;
+  overflow: hidden;
+}

@@ -1,0 +1,19 @@
+var numberUtil = {
+  numberFormat: function(value) {
+    var t=Math.round(value)
+    var v = parseFloat(t)
+    return v.toFixed(2)
+  }
+}
+
+var numberUtilFloat = {
+  numberFormatFloat: function (value) {
+    var v = parseFloat(value)
+    return v.toFixed(2)
+  }
+}
+
+module.exports = {
+  numberFormat: numberUtil.numberFormat,
+  numberFormatFloat: numberUtilFloat.numberFormatFloat,
+}

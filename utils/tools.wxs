@@ -1,0 +1,35 @@
+/**
+ * js中indexOf方法
+ */
+var indexOf = function(array, item) {
+  return array.indexOf(item) !== -1;
+}
+
+/**
+ * 计算价格，最多两位小数
+ */
+var multiplication = function(num, amount) {
+  return (num * 100) * amount / 100
+}
+var formatTimeString = function(str) {
+  if (str == null) return
+  return str.split('-').join('.')
+}
+var lastDay = function (str) {
+  if (str == null) return
+  if(str==1){
+    return "还有一天过期"
+  }else if(str==2){
+    return "还有两天过期"
+  } else if (str == 2) {
+    return "还有三天过期"
+  }else{
+    return ""
+  }
+}
+module.exports = {
+  indexOf: indexOf,
+  lastDay:lastDay,
+  formatTimeString:formatTimeString,
+  multiplication: multiplication
+}

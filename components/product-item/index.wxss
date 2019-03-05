@@ -1,0 +1,143 @@
+/**index.wxss**/
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  width: 870rpx;
+  box-sizing: border-box;
+  transition: margin-left 0.2s ease-in-out;
+  background-size: 40rpx auto;
+}
+
+.product-item-info {
+  display: flex;
+  padding: 30rpx 0 30rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-item-select {
+  width: 40rpx;
+  height: 160rpx;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  padding-right: 20rpx;
+}
+
+.product-item-select-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.product-item-check {
+  display: block;
+  margin-left: 20rpx;
+}
+
+.product-item-image {
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+  background-color: #d8d8d8;
+}
+
+.product-image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.product-item-detail {
+  width: 500rpx;
+  position: relative;
+}
+
+.product-item-title {
+  font-size: 30rpx;
+  color: #222;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0rpx 40rpx 5rpx 0;
+}
+
+.product-item-attr {
+  margin: 20rpx 20rpx 0 0;
+}
+
+.product-item-attr .attr-info {
+  font-size: 24rpx;
+  color: #868686;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  line-height: 30rpx;
+  margin-right:20rpx;
+}
+
+.product-item-attr .attr-more {
+  width: 15rpx;
+  height: 30rpx;
+}
+
+.product-item-price-num {
+  display: block;
+}
+
+.product-item-price {
+  font-size: 30rpx;
+  position: absolute;
+  bottom: 1rpx;
+  color: #000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.product-item-price-discount {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.price-discount {
+  color: #ff4064;
+  margin-right: 10rpx;
+}
+
+.price {
+  color: #ff4064;
+}
+
+.product-item-amount {
+  display: flex;
+  position: absolute;
+  bottom: -20rpx;
+  align-items: center;
+  right: 0rpx;
+}
+
+.product-item .cart-btn {
+  display: inline-block;
+}
+
+.cart-change-btn-reduce {
+  width: 28rpx;
+  padding: 20rpx;
+}
+
+.cart-change-btn-add {
+  width: 28rpx;
+  padding: 20rpx;
+}
+
+.product-item .num {
+  color: #555;
+  font-size: 32rpx;
+  width: 60rpx;
+  text-align: center;
+}
