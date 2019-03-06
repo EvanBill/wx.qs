@@ -41,14 +41,3 @@
     </view>
   </view>
 </view>
-
-<!--分享 -->
-<view wx:if="{{showModal}}">
-  <view class="mask"></view>
-  <view class="modalDlg">
-    <view class='share-view'>
-      <image class='share-content' bindtap='onShareGo' src="/images/img_admain.png" />
-    </view>
-    <image class='share-close' bindtap='onShareClose' src="/images/icon_close.png" />
-  </view>
-</view>
