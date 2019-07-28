@@ -16,19 +16,13 @@
 
       <view class='product-container'>
         <view class="product-box" wx:for-items="{{products}}" wx:key="{{index}}" data-id="{{item.productId}}">
-          <navigator url="/pages/product-detail/index?productId={{item.productId}}&type={{item.pricingType}}">
+
+            <navigator url="/pages/product-detail/index?productId={{item.productId}}&type={{item.pricingType}}">
             <view class="img-box">
               <image src="{{item.masterImage}}{{imageThumbnail}}" class="image" mode="aspectFill" lazy-load="true" />
             </view>
             <view class="product-title">{{item.productName}} </view>
-            <view style='display:flex;line-height: 1'>
-              <view class="product-price price" wx:if="{{item.discount==1}}">¥ {{item.listPrice!=null?numberFormat.numberFormat(item.listPrice):numberFormat.numberFormat(item.limitPrice)}}</view>
-              <view class="product-price-discount" wx:else>
-                <view class="price">¥ {{item.listPrice!=null?numberFormat.numberFormat(item.listPrice*item.discount):numberFormat.numberFormat(item.limitPrice*item.discount)}}</view>
-                <view class="price-discount">¥{{item.listPrice!=null?numberFormat.numberFormat(item.listPrice):numberFormat.numberFormat(item.limitPrice)}}</view>
 
-              </view>
-            </view>
           </navigator>
         </view>
       </view>

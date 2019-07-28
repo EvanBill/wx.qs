@@ -7,8 +7,39 @@ const util = require('../../../utils/util.js')
 Page({
   data: {
     backTopValue: false,
-    banners: [],
-    products: [],
+    banners: [
+      { image: "/images/banner1.png" },
+      { image: "/images/banner2.png" },
+      { image: "/images/banner3.png" },
+      { image: "/images/banner4.png" }
+    ],
+    products: [
+      {
+        masterImage: "/images/item.png",
+        productName: "风景1",
+        productId:"1"
+      },
+      {
+        masterImage: "/images/item1.png",
+        productName: "风景2",
+        productId: "2"
+      },
+      {
+        masterImage: "/images/item2.png",
+        productName: "风景3",
+          productId: "3"
+      },
+      {
+        masterImage: "/images/item3.png",
+        productName: "风景4",
+        productId: "4"
+      },
+      {
+        masterImage: "/images/item3.png",
+        productName: "风景5",
+        productId: "5"
+      }
+    ],
     tabs: [{
       name: '最新发布',
       status: 1
@@ -28,51 +59,51 @@ Page({
     showModal: false,
     page: 1,
     pageSize: 10,
-    hasMore: true,
+    hasMore: false,
     count: 0,
     hasMobile: false,
     needMeasure: true,
     imageThumbnail: app.globalData.imageThumbnailList
   },
-  onLoad: function() {
-    wx.showLoading({
-      title: '加载中...',
-    })
+  onLoad: function () {
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
 
-    this.initShare()
-    var _this = this;
-    wx.getSystemInfo({
-      success: function(res) {
-        _this.setData({
-          sliderLeft: 10 / 2,
-          sliderOffset: 240 / _this.data.tabs.length * _this.data.activeIndex
-        });
-      }
-    });
+    // this.initShare()
+    // var _this = this;
+    // wx.getSystemInfo({
+    //   success: function(res) {
+    //     _this.setData({
+    //       sliderLeft: 10 / 2,
+    //       sliderOffset: 240 / _this.data.tabs.length * _this.data.activeIndex
+    //     });
+    //   }
+    // });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
-    wx.hideLoading()
+  onReady: function () {
+    // wx.hideLoading()
   },
 
-  onShow: function() {
-    var mUser = u.GetUserInfo()
-    if (mUser != null) {
-      this.setData({
-        hasMobile: !mUser.shared
-      })
-    }
-    this.getBanner()
-    this.getcategory(this.data.page, false)
+  onShow: function () {
+    // var mUser = u.GetUserInfo()
+    // if (mUser != null) {
+    //   this.setData({
+    //     hasMobile: !mUser.shared
+    //   })
+    // }
+    // this.getBanner()
+    // this.getcategory(this.data.page, false)
   },
 
-  onHide: function() {
-    wx.hideLoading()
+  onHide: function () {
+    // wx.hideLoading()
   },
-  contact: function() {
+  contact: function () {
     wx.showLoading({
       title: '加载中...',
     })
@@ -82,7 +113,7 @@ Page({
   /****
    * 分享
    */
-  initShare: function() {
+  initShare: function () {
     this.data.count = wx.getStorageSync("s_count") || 0
     if (this.data.count == 0) {
       this.onShare()
@@ -90,7 +121,7 @@ Page({
     this.data.count++;
     wx.setStorageSync("s_count", this.data.count)
   },
-  onShare: function() {
+  onShare: function () {
     if (this.data.count > 0) {
       wx.navigateTo({
         url: '../../login/login.index/login.index?isShared=true',
@@ -102,19 +133,19 @@ Page({
       });
     }
   },
-  onShareClose: function() {
+  onShareClose: function () {
     this.setData({
       showModal: false
     });
   },
-  onShareGo: function() {
+  onShareGo: function () {
     this.onShareClose()
     wx.navigateTo({
       url: '../../login/login.index/login.index?isShared=true',
     })
   },
 
-  getcategory: function(page, isReach) {
+  getcategory: function (page, isReach) {
     const url = `/products/mina_products`;
     const query = {
       page: page,
@@ -140,27 +171,28 @@ Page({
         hasMore: this.data.hasMore
       })
 
-    }).catch(function(err) {
+    }).catch(function (err) {
       wx.showToast({
         title: err.data.message,
       })
     })
   },
 
-  getBanner: function() {
-    const _this = this
-    api.fetchRequest('/banners').then(function(res) {
-      _this.setData({
-        banners: res.data,
-      });
-    }).catch(function(err) {
-      wx.showToast({
-        title: err.data.message,
-      })
-    })
+  getBanner: function () {
+    // const _this = this
+    // banners = [{ "image":"/images/banner1.png"}]
+    // api.fetchRequest('/banners').then(function(res) {
+    //   _this.setData({
+    //     banners: res.data,
+    //   });
+    // }).catch(function(err) {
+    //   wx.showToast({
+    //     title: err.data.message,
+    //   })
+    // })
   },
 
-  tabClick: function(e) {
+  tabClick: function (e) {
     if (this.data.activeIndex == e.currentTarget.id) return
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
@@ -174,19 +206,19 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
     this.data.page = 1
     this.getBanner()
     this.getcategory(this.data.page, false)
     //模拟加载
-    setTimeout(function() {
+    setTimeout(function () {
       // complete
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
     }, 1500);
   },
-  showProductDetail: function(e) {
+  showProductDetail: function (e) {
     const item = e.currentTarget.dataset.product
     const type = e.currentTarget.dataset.type
     wx.navigateTo({
@@ -196,7 +228,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     var products = this.data.products[this.data.activeIndex];
     var tab = this.data.tabs[this.data.activeIndex];
 
@@ -206,7 +238,7 @@ Page({
   /***
    * 定制 商城切换
    */
-  onDingzhi: function() {
+  onDingzhi: function () {
     if (!this.data.needMeasure) {
       this.setData({
         page: 1
@@ -217,7 +249,7 @@ Page({
     })
     this.getcategory(this.data.page, false)
   },
-  onShopping: function() {
+  onShopping: function () {
     if (this.data.needMeasure) {
       this.data.page = 1
     }
@@ -227,7 +259,7 @@ Page({
     this.getcategory(this.data.page, false)
   },
   // 监听滚动条坐标
-  onPageScroll: function(e) {
+  onPageScroll: function (e) {
     var that = this
     var scrollTop = e.scrollTop
     var backTopValue = scrollTop > 100 ? true : false
@@ -235,7 +267,7 @@ Page({
       backTopValue: backTopValue
     })
   },
-  goTop: function() {
+  goTop: function () {
     wx.pageScrollTo({
       scrollTop: 0
     })

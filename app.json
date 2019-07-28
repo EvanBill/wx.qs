@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/home/index/index",
-    "pages/logs/logs"
+    "pages/product-detail/index",
+    "pages/my/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#FFD646",
+    "navigationBarBackgroundColor": "#8cc8ff",
     "navigationBarTitleText": "趣捎",
     "navigationBarTextStyle": "black"
   },
@@ -19,20 +20,19 @@
         "selectedIconPath": "images/icon_home_check.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/my/index",
         "text": "发布",
         "iconPath": "images/icon_home_uncheck.png",
         "selectedIconPath": "images/icon_home_check.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/my/index",
         "text": "每周推荐",
         "iconPath": "images/icon_home_uncheck.png",
         "selectedIconPath": "images/icon_home_check.png"
       },
-
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/my/index",
         "text": "我的",
         "iconPath": "images/icon_home_uncheck.png",
         "selectedIconPath": "images/icon_home_check.png"

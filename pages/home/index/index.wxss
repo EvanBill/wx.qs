@@ -84,17 +84,21 @@
 .weui-tab-content {
   text-align: center;
 }
-
+.weui-tab{
+  display: block;
+  width: 100%;
+}
 .weui-navbar {
   flex: 1;
   position: relative;
   height: 88rpx;
+  width: 100%;
   font-size: 28rpx;
   display: flex;
 }
 
 .weui-navbar-item {
-  flex: 1;
+  flex:1 ;
   color: #555;
   font-size: 30rpx;
   font-weight: bold;
